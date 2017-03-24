@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "150136257212",
+    "firebase_url": "https://fcm-push-exam-b51ac.firebaseio.com",
+    "project_id": "fcm-push-exam-b51ac",
+    "storage_bucket": "fcm-push-exam-b51ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150136257212:android:7662a4e9aae77777",
+        "android_client_info": {
+          "package_name": "com.shinhan.fcmexam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150136257212-atje577v2o3ednn0cb4k7lr5iigrkpn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUWfuDN6HC6tPHPTfeY9xAZjxDWkvTt7E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
