@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.shinhan.fcmexam.Host"
+    android:orientation="vertical">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Test Money"
+        android:onClick="onClickSendMessage"/>
+    <EditText
+        android:id="@+id/Account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Account number"/>
+    <EditText
+        android:id="@+id/Money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Money"/>
+
+    <Button
+        android:text="get Account info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickgetAccountInfo"/>
+    <EditText
+        android:id="@+id/accountNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Account Number"/>
+    <TextView
+        android:id="@+id/accountInfoResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="onClickSendPushMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send push message"/>
+</LinearLayout>
