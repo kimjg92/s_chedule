@@ -6,40 +6,82 @@
     android:layout_height="match_parent"
     tools:context="com.shinhan.fcmexam.Host"
     android:orientation="vertical">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send Test Money"
-        android:onClick="onClickSendMessage"/>
-    <EditText
-        android:id="@+id/Account"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Account number"/>
-    <EditText
-        android:id="@+id/Money"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Money"/>
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="거래"
+            android:onClick="onClickTradeButton"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <RadioButton
+                android:text="입금"
+                android:id="@+id/deposit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <RadioButton
+                android:text="출금"
+                android:id="@+id/withdraw"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </RadioGroup>
 
-    <Button
-        android:text="get Account info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickgetAccountInfo"/>
-    <EditText
-        android:id="@+id/accountNum"
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Account Number"/>
-    <TextView
-        android:id="@+id/accountInfoResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:orientation="vertical">
 
-    <Button
-        android:onClick="onClickSendPushMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="send push message"/>
+        <EditText
+            android:id="@+id/Account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Account number"
+            android:text="110-123-456789"/>
+        <EditText
+            android:id="@+id/Money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Money Amount"
+            android:inputType="numberSigned"
+            android:text="1000"/>
+
+        <Button
+            android:text="get Account info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickgetAccountInfo"/>
+        <EditText
+            android:id="@+id/accountNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Account Number"/>
+        <TextView
+            android:id="@+id/accountInfoResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="onClickSendPushMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send push message"/>
+        <Button
+            android:text="Add Token of DEVICE"
+            android:id="@+id/AddToken"
+            android:onClick="onClickAddTokenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 </LinearLayout>

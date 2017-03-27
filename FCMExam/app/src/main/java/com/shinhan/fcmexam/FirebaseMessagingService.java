@@ -35,13 +35,16 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
     // [START receive_message]
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-
+        String Title = "";
+        String Body = "";
         //추가한것
         Log.d(TAG, "From: " + remoteMessage.getFrom());
-
+        Log.d(TAG, "message Type : " + remoteMessage.getMessageType());
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+        } else{
+            Log.d(TAG, "remoteMessage.getData is null");
         }
 
         // Check if message contains a notification payload.
@@ -49,13 +52,17 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
             Log.d(TAG,"Message Notification Title: " + remoteMessage.getNotification().getTitle());
             Log.d(TAG,"Message Notification TAG: " + remoteMessage.getNotification().getTag());
+            Title = remoteMessage.getNotification().getTitle();
+            Body = remoteMessage.getNotification().getBody();
+        } else {
+            Log.d(TAG,"remoteMessagee.getNotification is null");
+
         }
 
-
-        sendNotification(remoteMessage.getData().get("message"));
+        sendNotification(remoteMessage.getData().get("message"),Body, Title);
     }
 
-    private void sendNotification(String messageBody) {
+    private void sendNotification(String messageBody, String Body, String Title) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -64,8 +71,8 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("FCM Push Test")
-                .setContentText(messageBody)
+                .setContentTitle(Title)
+                .setContentText(Body)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
